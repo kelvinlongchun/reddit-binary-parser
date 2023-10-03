@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Reddit Binary Parser",
+  "version": "1.0.0",
+  "description": "Parse the binary texts on Reddit.",
+  "permissions": ["activeTab", "https://www.reddit.com/*"],
+  "content_scripts": [
+    {
+      "matches": ["https://www.reddit.com/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "icons": {
+    "16": "icon.png",
+    "32": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  }
+}
