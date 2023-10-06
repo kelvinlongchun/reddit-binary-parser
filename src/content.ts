@@ -1,3 +1,5 @@
+import { convertBinaryText } from "./utils";
+
 function getBinaryTextsArray(str: string) {
   const binaryTextsRegex = /(?:[01]+\s+)+[01]+/g;
   return str.match(binaryTextsRegex);
@@ -6,10 +8,6 @@ function getBinaryTextsArray(str: string) {
 function getBinaryTextArray(binaryTexts: string) {
   const binaryRegex = /\b[01]+\b/g;
   return binaryTexts.match(binaryRegex);
-}
-
-function convertBinaryText(binaryText: string) {
-  return String.fromCharCode(parseInt(binaryText, 2));
 }
 
 function convertBinaryTexts(binaryTexts: string) {
