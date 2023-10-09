@@ -9,7 +9,9 @@ function getBinaryTextArray(binaryTexts: string) {
 }
 
 function convertBinaryText(binaryText: string) {
-  return String.fromCharCode(parseInt(binaryText, 2));
+  return /^[01]+$/.test(binaryText)
+    ? String.fromCharCode(parseInt(binaryText, 2))
+    : "";
 }
 
 function convertBinaryTexts(binaryTexts: string) {
@@ -70,7 +72,7 @@ function updateElements(elements: NodeListOf<HTMLElement>) {
   });
 }
 
-const observer = new MutationObserver((mutationsList, _observer) => {
+const observer = new MutationObserver((mutationsList) => {
   for (const mutation of mutationsList) {
     if (mutation.type === "attributes" || mutation.type === "characterData") {
       const targetElements = document.querySelectorAll("p");
@@ -85,3 +87,12 @@ observer.observe(document.body, {
   characterData: true,
   subtree: true,
 });
+
+// For jest only, comment the export when doing the build
+// export {
+//   getBinaryTextsArray,
+//   getBinaryTextArray,
+//   convertBinaryText,
+//   convertBinaryTexts,
+//   setSpanElementStyle,
+// };
